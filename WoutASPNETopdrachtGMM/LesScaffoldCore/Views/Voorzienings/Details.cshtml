@@ -1,0 +1,48 @@
+﻿@model BusinessFacade.Voorziening
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voorziening</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Wasserij)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Wasserij)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Busstock)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Busstock)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Coolersband)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Coolersband)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CoolersGMM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CoolersGMM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
