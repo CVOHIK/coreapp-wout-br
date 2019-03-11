@@ -1,0 +1,61 @@
+﻿@model ViewSec.Areas.User.Models.RiderViewModel
+
+@{
+    ViewData["Title"] = "Rider";
+}
+<header>
+    <h1>@Html.DisplayFor(model => model.Band.Name)</h1>
+</header>
+<article class="rider">
+    <section class="topData">
+        <section id="importantData">
+            <header>@Html.DisplayFor(model => model.Optreden.Date)</header>
+            <p>
+                <span>Stage</span>
+                <span>@Html.DisplayFor(model => model.Stage.Name)</span>
+            </p>
+            <p>
+                <span>Tent</span>
+                <span>@Html.DisplayFor(model => model.Tent.Name)</span>
+            </p>
+        </section>
+        <section class="personen">
+            <section class="persoon">
+                <header>Tourmanager</header>
+                <p>Thomas Reitz</p>
+                <p><span>Tel.:</span></p>
+            </section>
+            <section class="persoon">
+                <header>Production Manager</header>
+                <p>George Reeves</p>
+                <p><span>Tel.:</span></p>
+            </section>
+            <section class="persoon">
+                <header>Artiestenbegeider</header>
+                <p>Liesbeth Huber</p>
+                <p>Nele Knockaert</p>
+            </section>
+        </section>
+    </section>
+    <section class="riderItem">
+        <header>VOORRAAD - SECRETARIAAT - VOORZIENINGEN</header>
+        <section class="listBooleans">
+            <p>
+                <span class="title">Wasserij</span>
+                <span>@Html.DisplayFor(model => model.Voorziening.Wasserij)</span>
+            </p>
+        </section>
+        <ul class="comments"><li>All food clearly labeled</li></ul>
+    </section>
+    <section class="riderItem">
+        <header>Catering</header>
+        <section class="listBooleans">
+            <p>
+                <span class="title">After Show</span>
+                <span>@Html.DisplayFor(model => model.Catering.AfterShow)</span>
+            </p>
+        </section>
+        <ul class="comments"><li>Aftershowfood -> direct na show in P.O.</li></ul>
+    </section>
+</article>
+

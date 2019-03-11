@@ -1,0 +1,36 @@
+﻿@model BusinessFacade.Logistic
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Logistic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Verlengkabels)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Verlengkabels)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Voltage110)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Voltage110)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

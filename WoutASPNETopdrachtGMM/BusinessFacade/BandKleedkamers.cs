@@ -10,7 +10,7 @@ namespace BusinessFacade
     {
         public int Id { get; set; }
         public Optreden Optreden { get; set; }
-        public ICollection<Kleedkamer> Rleedkamers { get; set; }
+        public ICollection<Kleedkamer> Kleedkamers { get; set; }
         public DateTime Uurdatum { get; set; }
 
     }

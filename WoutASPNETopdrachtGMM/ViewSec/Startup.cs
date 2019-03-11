@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ViewSec.Models;
 
 namespace ViewSec
 {
@@ -41,7 +42,15 @@ namespace ViewSec
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>()
+
+            //TODO Identity options aren't used
+            services.AddIdentity<ApplicationUser, ApplicationRole>(
+                options => {
+                    options.Password.RequiredLength = 4;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
@@ -65,7 +74,10 @@ namespace ViewSec
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, GmmContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, 
+            GmmContext context, ApplicationDbContext idContext,
+            RoleManager<ApplicationRole> roleManager,
+            UserManager<ApplicationUser> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -87,11 +99,16 @@ namespace ViewSec
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             DbInitializer.Initialize(context);
+            UsersInitializer.Initialize(idContext, userManager, roleManager).Wait();
         }
     }
 }
