@@ -109,6 +109,8 @@ namespace ViewSec
 
             DbInitializer.Initialize(context);
             UsersInitializer.Initialize(idContext, userManager, roleManager).Wait();
+            //TODO SqlException: Invalid object name 'AspNetRoles
+            //Identity tabbellen worden niet aangemaakt bij nieuwe database.
         }
     }
 }

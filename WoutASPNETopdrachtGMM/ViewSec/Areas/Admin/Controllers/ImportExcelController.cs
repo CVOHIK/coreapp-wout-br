@@ -60,6 +60,7 @@ namespace ViewSec.Areas.Admin.Controllers
                     bandLijst.Add(p);
 
                     //TODO andere geg uit Excel halen
+                    //TODO README aanmaken
                 }
 
                 _context.Bands.AddRange(bandLijst);

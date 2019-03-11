@@ -17,7 +17,7 @@ namespace ViewSec.Data
             UserManager<ApplicationUser> userManager,
             RoleManager<ApplicationRole> roleManager)
         {
-            context.Database.EnsureCreated();
+            context.Database.EnsureCreated();//Migrate()?
 
             String adminId1 = "";
             String userId2 = "";
