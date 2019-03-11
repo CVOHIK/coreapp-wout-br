@@ -19,6 +19,11 @@ namespace ViewSec.Areas.Admin.Controllers
     {
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly GmmContext _context;
+        private readonly Dictionary<string, int> gmm_col = new Dictionary<string, int>() {
+            ["Dagen"] = 1,
+            ["Band"] = 2
+        };
+        //TODO betere binding tussen Excel en Model verzinnen
 
         public ImportExcelController(IHostingEnvironment hostingEnvironment, GmmContext context)
         {
@@ -26,10 +31,9 @@ namespace ViewSec.Areas.Admin.Controllers
             _context = context;
         }
 
-        /// <summary>
+        /// <see>
         /// https://www.c-sharpcorner.com/article/import-and-export-data-using-epplus-core/
-        /// </summary>
-        /// <returns></returns>
+        /// </see>
         [HttpGet]
         public IList<Band> ImportExcelFile()
         {
@@ -42,15 +46,20 @@ namespace ViewSec.Areas.Admin.Controllers
                 ExcelWorksheet workSheet = package.Workbook.Worksheets["Data_Gmm2018"];
                 int totalRows = workSheet.Dimension.Rows;
 
-                List<Band> bandLijst = new List<Band>();
+                var bandLijst = new List<Band>();
+                var memberLijst = new List<Member>();
 
                 for (int i = 2; i <= totalRows; i++)
                 {
+                    DateTime dag = DateTime.Parse(workSheet.Cells[i, gmm_col["Band"]].Value.ToString());
+
                     Band p = new Band
                     {
-                        Name = workSheet.Cells[i, 2].Value.ToString()
+                        Name = workSheet.Cells[i, gmm_col["Dagen"]].Value.ToString()
                     };
                     bandLijst.Add(p);
+
+                    //TODO andere geg uit Excel halen
                 }
 
                 _context.Bands.AddRange(bandLijst);
