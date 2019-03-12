@@ -14,6 +14,7 @@ using Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ViewSec.Models;
+using Microsoft.AspNetCore.Identity.UI;
 
 namespace ViewSec
 {
@@ -52,7 +53,7 @@ namespace ViewSec
                     options.Password.RequireNonAlphanumeric = false;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultUI()
+                .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddDefaultTokenProviders();
 
             services.AddTransient<IBand, BandData>();
