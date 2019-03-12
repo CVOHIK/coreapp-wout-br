@@ -94,8 +94,6 @@ namespace ViewSec.Data
             context.Optredens.Add(sabbOptreden);
 
             context.SaveChanges();
-
-            //TODO Inital migration als data in db zit
         }
     }
 }

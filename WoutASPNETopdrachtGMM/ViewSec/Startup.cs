@@ -43,7 +43,7 @@ namespace ViewSec
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            //TODO Identity options aren't used
+            //TODO Identity password options aren't used
             services.AddIdentity<ApplicationUser, ApplicationRole>(
                 options => {
                     options.Password.RequiredLength = 4;
@@ -109,8 +109,9 @@ namespace ViewSec
 
             DbInitializer.Initialize(context);
             UsersInitializer.Initialize(idContext, userManager, roleManager).Wait();
-            //TODO SqlException: Invalid object name 'AspNetRoles
+            //SqlException: Invalid object name 'AspNetRoles
             //Identity tabbellen worden niet aangemaakt bij nieuwe database.
+            //Oplossing: Update-Database
         }
     }
 }
