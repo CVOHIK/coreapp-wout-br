@@ -17,10 +17,10 @@ namespace ViewSec.Data
             UserManager<ApplicationUser> userManager,
             RoleManager<ApplicationRole> roleManager)
         {
-            context.Database.EnsureCreated();//Migrate()?
+            context.Database.EnsureCreated();//Migrate() niet mogelijk in ASP.NET Core
 
-            String adminId1 = "";
-            String userId2 = "";
+            string adminId1 = "";
+            string userId2 = "";
 
             string roleAdmin = "Admin";
             string desc1 = "This is the administrator role";

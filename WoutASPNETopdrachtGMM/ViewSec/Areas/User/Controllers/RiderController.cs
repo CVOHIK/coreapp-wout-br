@@ -62,10 +62,10 @@ namespace ViewSec.Areas.User.Views
             rider.Tent = optreden.Tent;
             rider.Voorziening = optreden.Voorziening;
 
-            var bandKleedkamers = _context.BandKleedkamers.FirstOrDefault(bk => bk.Optreden == optreden);
+            var bandKleedkamers = _context.BandKleedkamers.Where(bk => bk.Optreden == optreden).ToList();
             if (bandKleedkamers != null)
             {
-                rider.Kleedkamers = bandKleedkamers.Kleedkamers;
+                rider.Kleedkamers = bandKleedkamers.Select(bk => bk.Kleedkamer).ToList();
             }
 
             var bandProductieUnits = _context.BandProductieUnits.Where(bp => bp.Optreden == optreden).ToList();
@@ -77,7 +77,7 @@ namespace ViewSec.Areas.User.Views
             return rider;
         }
 
-        // GET: Rider/5
+        // GET: Rider/BandName
         public async Task<IActionResult> Name2(string name)
         {
             if (name == null)

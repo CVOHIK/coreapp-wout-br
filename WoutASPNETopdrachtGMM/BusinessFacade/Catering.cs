@@ -11,6 +11,10 @@ namespace BusinessFacade
         public int Id { get; set; }
         public ICollection<Optreden> Optredens { get; set; }
         public bool AfterShow { get; set; }
+        public bool Speciaal { get; set; }
+        public bool TakeAwayFood { get; set; }
+        public int Truckdrivers { get; set; }
+        public string Comments { get; set; }
 
     }
 }

@@ -15,10 +15,10 @@ namespace BusinessFacade
         public int HdZwartGr { get; set; }
         public int HdZwartKl { get; set; }
         public int Runner { get; set; }
-        public string Arts { get; set; }
+        public int Arts { get; set; }
         public int Zuurstof { get; set; }
-        public bool Kine { get; set; }
-        public bool Vervoer { get; set; }
+        public int Kine { get; set; }
+        public int Vervoer { get; set; }
         public string Comments { get; set; }
     }
 }

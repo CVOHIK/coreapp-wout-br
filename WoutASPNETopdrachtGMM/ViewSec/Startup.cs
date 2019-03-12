@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ViewSec.Models;
 using Microsoft.AspNetCore.Identity.UI;
+using System.Data.SqlClient;
 
 namespace ViewSec
 {
@@ -109,10 +110,16 @@ namespace ViewSec
             });
 
             DbInitializer.Initialize(context);
-            UsersInitializer.Initialize(idContext, userManager, roleManager).Wait();
-            //SqlException: Invalid object name 'AspNetRoles
-            //Identity tabbellen worden niet aangemaakt bij nieuwe database.
-            //Oplossing: Update-Database
+            try
+            {
+                UsersInitializer.Initialize(idContext, userManager, roleManager).Wait();
+            }
+            catch (System.AggregateException ae)
+            {
+                //SqlException: Invalid object name 'AspNetRoles'
+                //Identity tabbellen worden niet aangemaakt bij nieuwe database.
+                //Oplossing: Update-Database
+            }
         }
     }
 }
