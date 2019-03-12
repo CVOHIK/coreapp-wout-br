@@ -1,14 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <UserSecretsId>aspnet-ViewSec-FF7E9BC5-2BA9-4000-968B-76A42C46E407</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="EPPlus.Core" Version="1.5.4" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
