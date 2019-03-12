@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ViewSec</title>
+    <title>@ViewData["Title"] - GMM ViewSec</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -27,14 +27,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ViewSec</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">GMM ViewSec</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data</a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="User" asp-controller="Bands" asp-action="Index">Bands</a></li>
+                            <li><a asp-area="User" asp-controller="Caterings" asp-action="Index">Caterings</a></li>
+                            <li><a asp-area="User" asp-controller="Functions" asp-action="Index">Functions</a></li>
+                            <li><a asp-area="User" asp-controller="Kleedkamers" asp-action="Index">Kleedkamers</a></li>
+                            <li><a asp-area="User" asp-controller="Logistics" asp-action="Index">Logistics</a></li>
+                            <li><a asp-area="User" asp-controller="Members" asp-action="Index">Members</a></li>
+                            <li><a asp-area="User" asp-controller="ProductieUnits" asp-action="Index">ProductieUnits</a></li>
+                            <li><a asp-area="User" asp-controller="Specials" asp-action="Index">Specials</a></li>
+                            <li><a asp-area="User" asp-controller="Stages" asp-action="Index">Stages</a></li>
+                            <li><a asp-area="User" asp-controller="Tents" asp-action="Index">Tents</a></li>
+                            <li><a asp-area="User" asp-controller="Voorzienings" asp-action="Index">Voorzienings</a></li>
+                        </ul>
+                    </li>
                     <li><a asp-area="User" asp-controller="Rider" asp-action="Index" asp-route-id="2">Rider</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -47,7 +60,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2019 - ViewSec</p>
+            <p>&copy; 2019 - woutbr</p>
         </footer>
     </div>
 
