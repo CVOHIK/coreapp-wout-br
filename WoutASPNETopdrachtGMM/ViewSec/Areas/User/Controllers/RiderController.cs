@@ -34,6 +34,8 @@ namespace ViewSec.Areas.User.Views
             var optreden = await _context.Optredens
                 .Include(o => o.Logistic)
                 .Include(o => o.Band)
+                .ThenInclude(b => b.Members)
+                .ThenInclude(m => m.Function)
                 .Include(o => o.Catering)
                 .Include(o => o.Special)
                 .Include(o => o.Stage)
@@ -62,13 +64,15 @@ namespace ViewSec.Areas.User.Views
             rider.Tent = optreden.Tent;
             rider.Voorziening = optreden.Voorziening;
 
-            var bandKleedkamers = _context.BandKleedkamers.Where(bk => bk.Optreden == optreden).ToList();
+            var bandKleedkamers = _context.BandKleedkamers.Where(bk => bk.Optreden == optreden)
+                                    .Include(bk => bk.Kleedkamer).ToList();
             if (bandKleedkamers != null)
             {
                 rider.Kleedkamers = bandKleedkamers.Select(bk => bk.Kleedkamer).ToList();
             }
 
-            var bandProductieUnits = _context.BandProductieUnits.Where(bp => bp.Optreden == optreden).ToList();
+            var bandProductieUnits = _context.BandProductieUnits.Where(bp => bp.Optreden == optreden)
+                                    .Include(bp => bp.ProductieUnit).ToList();
             if (bandProductieUnits != null)
             {
                 rider.ProductieUnits = bandProductieUnits.Select(bp => bp.ProductieUnit).ToList();

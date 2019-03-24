@@ -1,29 +1,29 @@
 ﻿.rider {
-    display: flex;
-    flex-direction: column;
+    
 }
 
     .rider section {
-        border: thin double black;
+        /*border: thin double black;*/
         padding: 1em;
     }
 
     .rider header {
         background-color: lightyellow;
-        border: thin double orange;
+        /*border: thin double orange;*/
         text-align: center;
     }
 
     .rider p {
         background-color: lightgrey;
-        border: thin double green;
+        /*border: thin double green;*/
+        padding: 2px;
     }
 
-        .rider p > span:first-of-type {
+        .rider p > label:first-of-type {
             padding-right: 10px;
         }
 
-            .rider p > span:first-of-type::after {
+            .rider p > label:first-of-type::after {
                 content: ":";
             }
 
@@ -32,19 +32,20 @@
         }
 
 .topData {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center
+    
 }
 
     .topData .personen {
-        display: flex;
-        flex-wrap: wrap;
+        
     }
 
     .topData #importantData {
-        flex-grow: 2;
+        
     }
 
 .personen .persoon {
+}
+
+.rider .comments{
+    column-count: 2;
 }

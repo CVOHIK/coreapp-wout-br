@@ -3,59 +3,103 @@
 @{
     ViewData["Title"] = "Rider";
 }
+
 <header>
     <h1>@Html.DisplayFor(model => model.Band.Name)</h1>
 </header>
 <article class="rider">
-    <section class="topData">
-        <section id="importantData">
-            <header>@Html.DisplayFor(model => model.Optreden.Date)</header>
+    <section class="topData row">
+        <div id="importantData" class="col-md-6">
+            <header><h3>@Html.DisplayFor(model => model.Optreden.Date)</h3></header>
             <p>
-                <span>Stage</span>
+                <label>@Html.DisplayNameFor(model => model.Stage)</label>
                 <span>@Html.DisplayFor(model => model.Stage.Name)</span>
             </p>
             <p>
-                <span>Tent</span>
+                <label>@Html.DisplayNameFor(model => model.Tent)</label>
                 <span>@Html.DisplayFor(model => model.Tent.Name)</span>
             </p>
-        </section>
-        <section class="personen">
-            <section class="persoon">
-                <header>Tourmanager</header>
-                <p>Thomas Reitz</p>
-                <p><span>Tel.:</span></p>
-            </section>
-            <section class="persoon">
-                <header>Production Manager</header>
-                <p>George Reeves</p>
-                <p><span>Tel.:</span></p>
-            </section>
-            <section class="persoon">
-                <header>Artiestenbegeider</header>
-                <p>Liesbeth Huber</p>
-                <p>Nele Knockaert</p>
-            </section>
-        </section>
-    </section>
-    <section class="riderItem">
-        <header>VOORRAAD - SECRETARIAAT - VOORZIENINGEN</header>
-        <section class="listBooleans">
             <p>
-                <span class="title">Wasserij</span>
-                <span>@Html.DisplayFor(model => model.Voorziening.Wasserij)</span>
+                <label>@Html.DisplayNameFor(model => model.Kleedkamers)</label>
+                <span>@String.Join(", ", Model.Kleedkamers.Select(k => k.Name))</span>
             </p>
-        </section>
-        <ul class="comments"><li>All food clearly labeled</li></ul>
-    </section>
-    <section class="riderItem">
-        <header>Catering</header>
-        <section class="listBooleans">
             <p>
-                <span class="title">After Show</span>
-                <span>@Html.DisplayFor(model => model.Catering.AfterShow)</span>
+                <label>@Html.DisplayNameFor(model => model.Optreden.Hours)</label>
+                <span>@Html.DisplayFor(model => model.Optreden.Hours)</span>
             </p>
-        </section>
-        <ul class="comments"><li>Aftershowfood -> direct na show in P.O.</li></ul>
+        </div>
+        <div class="personen col-md-6 row">
+            <verantwoordelijke members="Model.Band.Members" Functie="TourManager"></verantwoordelijke>
+            <verantwoordelijke members="Model.Band.Members" Functie="Production Manager"></verantwoordelijke>
+            <verantwoordelijke members="Model.Band.Members" Functie="Artiestenbegeleider"></verantwoordelijke>
+        </div>
+    </section>
+    <section class="riderItem row">
+        <div class="w-100">
+            <h2 class="pb-3 mb-4 border-bottom">
+                VOORRAAD - SECRETARIAAT - VOORZIENINGEN
+            </h2>
+            <div class="listBooleans">
+                <ul class="list-unstyled d-flex flex-wrap">
+                    <rider-li for="Voorziening.Wasserij"></rider-li>
+                    <rider-li for="Voorziening.Busstock"></rider-li>
+                    <rider-li for="Voorziening.Coolersband"></rider-li>
+                    <rider-li for="Voorziening.CoolersGMM"></rider-li>
+                </ul>
+            </div>
+            <rider-comments comments="Voorziening.Comments"></rider-comments>
+        </div>
+    </section>
+    <section class="riderItem row">
+        <div class="w-100">
+            <h2 class="pb-3 mb-4 border-bottom">
+                Catering
+            </h2>
+            <div class="listBooleans">
+                <ul class="list-unstyled d-flex flex-wrap">
+                    <rider-li for="Catering.AfterShow"></rider-li>
+                    <rider-li for="Catering.Speciaal"></rider-li>
+                    <rider-li for="Catering.TakeAwayFood"></rider-li>
+                    <rider-li for="Catering.Truckdrivers"></rider-li>
+                </ul>
+            </div>
+            <rider-comments comments="Catering.Comments"></rider-comments>
+        </div>
+    </section>
+    <section class="riderItem row">
+        <div class="w-100">
+            <h2 class="pb-3 mb-4 border-bottom">
+                Logistic
+            </h2>
+            <div class="listBooleans">
+                <ul class="list-unstyled d-flex flex-wrap">
+                    <rider-li for="Logistic.Verlengkabels"></rider-li>
+                    <rider-li for="Logistic.Voltage110"></rider-li>
+                </ul>
+            </div>
+            <rider-comments comments="Logistic.Comments"></rider-comments>
+        </div>
+    </section>
+    <section class="riderItem row">
+        <div class="w-100">
+            <h2 class="pb-3 mb-4 border-bottom">
+                Speciaal
+            </h2>
+            <div class="listBooleans">
+                <ul class="list-unstyled d-flex flex-wrap">
+                    <rider-li for="Special.Arts"></rider-li>
+                    <rider-li for="Special.HdItKl"></rider-li>
+                    <rider-li for="Special.HdWitGr"></rider-li>
+                    <rider-li for="Special.HdZwartGr"></rider-li>
+                    <rider-li for="Special.HdZwartKl"></rider-li>
+                    <rider-li for="Special.Kine"></rider-li>
+                    <rider-li for="Special.Runner"></rider-li>
+                    <rider-li for="Special.Vervoer"></rider-li>
+                    <rider-li for="Special.Zuurstof"></rider-li>
+                </ul>
+            </div>
+            <rider-comments comments="Special.Comments"></rider-comments>
+        </div>
     </section>
 </article>
 
