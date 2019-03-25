@@ -14,7 +14,7 @@ namespace BusinessFacade
         [Display(Name = "HD wit gr")]
         public int HdWitGr { get; set; }
         [Display(Name = "HD wit kl")]
-        public int HdItKl { get; set; }
+        public int HdWitKl { get; set; }
         [Display(Name = "HD zwart gr")]
         public int HdZwartGr { get; set; }
         [Display(Name = "HD zwart kl")]

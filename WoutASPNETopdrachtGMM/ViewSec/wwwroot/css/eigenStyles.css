@@ -1,51 +1,60 @@
-﻿.rider {
-    
+﻿.rider section {
+    /*border: thin double black;*/
+    padding: 1em;
 }
 
-    .rider section {
-        /*border: thin double black;*/
-        padding: 1em;
+.rider header {
+    /*border: thin double orange;*/
+    text-align: center;
+}
+
+.rider p {
+    background-color: lightgrey;
+    /*border: thin double green;*/
+    padding: 2px;
+}
+
+    .rider p > label:first-of-type {
+        padding-right: 10px;
     }
 
-    .rider header {
-        background-color: lightyellow;
-        /*border: thin double orange;*/
-        text-align: center;
-    }
-
-    .rider p {
-        background-color: lightgrey;
-        /*border: thin double green;*/
-        padding: 2px;
-    }
-
-        .rider p > label:first-of-type {
-            padding-right: 10px;
+        .rider p > label:first-of-type::after {
+            content: ":";
         }
 
-            .rider p > label:first-of-type::after {
-                content: ":";
-            }
+    .rider p > span:last-of-type {
+        text-align: right;
+    }
 
-        .rider p > span:last-of-type {
-            text-align: right;
-        }
+#importantData header, #importantData p {
+    background-color: black;
+}
+
+    #importantData p > label {
+        color: white;
+    }
+
+#importantData.groepskleur1 header, #importantData.groepskleur1 p > span {
+    color: yellow;
+}
+
+#importantData.groepskleur2 header, #importantData.groepskleur2 p > span {
+    color: red;
+}
+
+#importantData.groepskleur3 header, #importantData.groepskleur3 p > span {
+    color: white;
+}
 
 .topData {
-    
 }
 
     .topData .personen {
-        
-    }
-
-    .topData #importantData {
-        
     }
 
 .personen .persoon {
 }
 
-.rider .comments{
+.rider .comments {
     column-count: 2;
 }

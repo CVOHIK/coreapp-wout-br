@@ -9,7 +9,7 @@
 </header>
 <article class="rider">
     <section class="topData row">
-        <div id="importantData" class="col-md-6">
+        <div id="importantData" class="col-md-6 groepskleur@{@Model.Band.GroepsColor}">
             <header><h3>@Html.DisplayFor(model => model.Optreden.Date)</h3></header>
             <p>
                 <label>@Html.DisplayNameFor(model => model.Stage)</label>
@@ -24,8 +24,8 @@
                 <span>@String.Join(", ", Model.Kleedkamers.Select(k => k.Name))</span>
             </p>
             <p>
-                <label>@Html.DisplayNameFor(model => model.Optreden.Hours)</label>
-                <span>@Html.DisplayFor(model => model.Optreden.Hours)</span>
+                <label>@Html.DisplayNameFor(model => model.BandKleedkamers.First().Uurdatum)</label>
+                <span>tot @Html.DisplayFor(model => model.BandKleedkamers.First().Uurdatum)</span>
             </p>
         </div>
         <div class="personen col-md-6 row">
@@ -47,7 +47,7 @@
                     <rider-li for="Voorziening.CoolersGMM"></rider-li>
                 </ul>
             </div>
-            <rider-comments comments="Voorziening.Comments"></rider-comments>
+            <rider-comments comments="@Model.Voorziening.Comments"></rider-comments>
         </div>
     </section>
     <section class="riderItem row">
@@ -63,7 +63,7 @@
                     <rider-li for="Catering.Truckdrivers"></rider-li>
                 </ul>
             </div>
-            <rider-comments comments="Catering.Comments"></rider-comments>
+            <rider-comments comments="@Model.Catering.Comments"></rider-comments>
         </div>
     </section>
     <section class="riderItem row">
@@ -77,7 +77,7 @@
                     <rider-li for="Logistic.Voltage110"></rider-li>
                 </ul>
             </div>
-            <rider-comments comments="Logistic.Comments"></rider-comments>
+            <rider-comments comments="@Model.Logistic.Comments"></rider-comments>
         </div>
     </section>
     <section class="riderItem row">
@@ -88,7 +88,7 @@
             <div class="listBooleans">
                 <ul class="list-unstyled d-flex flex-wrap">
                     <rider-li for="Special.Arts"></rider-li>
-                    <rider-li for="Special.HdItKl"></rider-li>
+                    <rider-li for="Special.HdWitKl"></rider-li>
                     <rider-li for="Special.HdWitGr"></rider-li>
                     <rider-li for="Special.HdZwartGr"></rider-li>
                     <rider-li for="Special.HdZwartKl"></rider-li>
@@ -98,7 +98,7 @@
                     <rider-li for="Special.Zuurstof"></rider-li>
                 </ul>
             </div>
-            <rider-comments comments="Special.Comments"></rider-comments>
+            <rider-comments comments="@Model.Special.Comments"></rider-comments>
         </div>
     </section>
 </article>

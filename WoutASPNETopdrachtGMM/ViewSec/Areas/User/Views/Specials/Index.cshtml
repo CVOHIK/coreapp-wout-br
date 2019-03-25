@@ -2,9 +2,10 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.HdWitGr)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HdItKl)
+                @Html.DisplayNameFor(model => model.HdWitKl)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.HdZwartGr)
@@ -52,7 +53,7 @@
                 @Html.DisplayFor(modelItem => item.HdWitGr)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HdItKl)
+                @Html.DisplayFor(modelItem => item.HdWitKl)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HdZwartGr)

@@ -18,5 +18,7 @@ namespace ViewSec.Areas.User.Models
         public Stage Stage { get; set; }
         public Tent Tent { get; set; }
         public Voorziening Voorziening { get; set; }
+        public ICollection<BandKleedkamers> BandKleedkamers { get; set; }
+        public ICollection<BandProductieUnits> BandProductieUnits { get; set; }
     }
 }

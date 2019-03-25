@@ -59,7 +59,7 @@ namespace ViewSec.Areas.User
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([Bind("Id,HdWitGr,HdItKl,HdZwartGr,HdZwartKl,Runner,Arts,Zuurstof,Kine,Vervoer,Comments")] Special special)
+        public async Task<IActionResult> Create([Bind("Id,HdWitGr,HdWitKl,HdZwartGr,HdZwartKl,Runner,Arts,Zuurstof,Kine,Vervoer,Comments")] Special special)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace ViewSec.Areas.User
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HdWitGr,HdItKl,HdZwartGr,HdZwartKl,Runner,Arts,Zuurstof,Kine,Vervoer,Comments")] Special special)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HdWitGr,HdWitKl,HdZwartGr,HdZwartKl,Runner,Arts,Zuurstof,Kine,Vervoer,Comments")] Special special)
         {
             if (id != special.Id)
             {

@@ -57,7 +57,8 @@ namespace ViewSec.Data
             Band sabbath = new Band
             {
                 Name = "Grey Sabbath",
-                Members = members
+                Members = members, 
+                GroepsColor = 1
             };
             Stage mainstage = new Stage { Name = "Mainstage 1" };
             Tent maintent = new Tent { Name = "MainTENT 1" };

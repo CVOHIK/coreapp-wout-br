@@ -2,9 +2,10 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h1>Edit</h1>
 
 <h4>Special</h4>
 <hr />
@@ -19,9 +20,9 @@
                 <span asp-validation-for="HdWitGr" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HdItKl" class="control-label"></label>
-                <input asp-for="HdItKl" class="form-control" />
-                <span asp-validation-for="HdItKl" class="text-danger"></span>
+                <label asp-for="HdWitKl" class="control-label"></label>
+                <input asp-for="HdWitKl" class="form-control" />
+                <span asp-validation-for="HdWitKl" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HdZwartGr" class="control-label"></label>
@@ -49,18 +50,14 @@
                 <span asp-validation-for="Zuurstof" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Kine" /> @Html.DisplayNameFor(model => model.Kine)
-                    </label>
-                </div>
+                <label asp-for="Kine" class="control-label"></label>
+                <input asp-for="Kine" class="form-control" />
+                <span asp-validation-for="Kine" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Vervoer" /> @Html.DisplayNameFor(model => model.Vervoer)
-                    </label>
-                </div>
+                <label asp-for="Vervoer" class="control-label"></label>
+                <input asp-for="Vervoer" class="form-control" />
+                <span asp-validation-for="Vervoer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Comments" class="control-label"></label>
@@ -68,7 +65,7 @@
                 <span asp-validation-for="Comments" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -78,6 +75,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

@@ -68,6 +68,7 @@ namespace ViewSec.Areas.User.Views
                                     .Include(bk => bk.Kleedkamer).ToList();
             if (bandKleedkamers != null)
             {
+                rider.BandKleedkamers = bandKleedkamers;
                 rider.Kleedkamers = bandKleedkamers.Select(bk => bk.Kleedkamer).ToList();
             }
 
@@ -75,6 +76,7 @@ namespace ViewSec.Areas.User.Views
                                     .Include(bp => bp.ProductieUnit).ToList();
             if (bandProductieUnits != null)
             {
+                rider.BandProductieUnits = bandProductieUnits;
                 rider.ProductieUnits = bandProductieUnits.Select(bp => bp.ProductieUnit).ToList();
             }
 
