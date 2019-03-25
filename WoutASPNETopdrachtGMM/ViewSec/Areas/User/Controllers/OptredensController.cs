@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BusinessFacade;
 using Data;
-using ViewSec.Areas.User.Models;
+using ViewSec.Areas.User.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 
 namespace ViewSec.Areas.User
@@ -55,6 +55,7 @@ namespace ViewSec.Areas.User
                 .FirstOrDefaultAsync(o => o.Band.Id == id);
             if (optreden == null)
             {
+                //TODO optreden zonder alle properties is null. Incomplete rider tonen
                 return NotFound();
             }
 
@@ -100,6 +101,7 @@ namespace ViewSec.Areas.User
         // GET: User/Optredens/Create
         public IActionResult Create()
         {
+            ViewData["Bands"] = new SelectList(_context.Bands.OrderBy(b => b.Name), "Id", "Name");
             return View();
         }
 
@@ -108,10 +110,16 @@ namespace ViewSec.Areas.User
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Date,Hours")] Optreden optreden)
+        public async Task<IActionResult> Create([Bind("Id,Date,Hours,Band")] Optreden optreden)
         {
             if (ModelState.IsValid)
             {
+                var band = await _context.Bands.FindAsync(optreden.Band.Id);
+                if (band == null)
+                {
+                    return NotFound();
+                }
+                optreden.Band = band;
                 _context.Add(optreden);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -127,11 +135,14 @@ namespace ViewSec.Areas.User
                 return NotFound();
             }
 
-            var optreden = await _context.Optredens.FindAsync(id);
+            var optreden = await _context.Optredens
+                .Include(o=> o.Band)
+                .FirstOrDefaultAsync(o => o.Id == id);
             if (optreden == null)
             {
                 return NotFound();
             }
+            ViewData["Bands"] = new SelectList(_context.Bands.OrderBy(b => b.Name), "Id", "Name");
             return View(optreden);
         }
 
@@ -140,7 +151,7 @@ namespace ViewSec.Areas.User
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Date,Hours")] Optreden optreden)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Date,Hours,Band")] Optreden optreden)
         {
             if (id != optreden.Id)
             {
@@ -151,6 +162,12 @@ namespace ViewSec.Areas.User
             {
                 try
                 {
+                    var band = await _context.Bands.FindAsync(optreden.Band.Id);
+                    if (band == null)
+                    {
+                        return NotFound();
+                    }
+                    optreden.Band = band;
                     _context.Update(optreden);
                     await _context.SaveChangesAsync();
                 }

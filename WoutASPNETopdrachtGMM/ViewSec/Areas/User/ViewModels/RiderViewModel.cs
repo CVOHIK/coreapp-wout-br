@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessFacade;
 
-namespace ViewSec.Areas.User.Models
+namespace ViewSec.Areas.User.ViewModels
 {
     public class RiderViewModel
     {
