@@ -1,4 +1,7 @@
-﻿.rider section {
+﻿.navbar-brand {
+    font-family: Georgia, Times, serif;
+}
+.rider section {
     /*border: thin double black;*/
     padding: 1em;
 }
