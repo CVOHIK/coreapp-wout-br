@@ -1,0 +1,11 @@
+﻿@model ViewSec.Views.Shared.Components.Verantwoordelijke.VerantwoordelijkeModel
+@{
+    ViewData["gridClass"] = "col-md-12";
+    Layout = "_VerantwoordelijkeLayout.cshtml";
+}
+<div class="d-flex flex-wrap">
+    @foreach (var member in Model.Members)
+    {
+        <p class="col-md-6">@member.Name</p>
+    }
+</div>

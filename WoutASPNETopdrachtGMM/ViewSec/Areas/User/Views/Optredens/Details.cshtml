@@ -29,9 +29,9 @@
             </p>
         </div>
         <div class="personen col-md-6 row">
-            <verantwoordelijke members="Model.Band.Members" Functie="TourManager"></verantwoordelijke>
-            <verantwoordelijke members="Model.Band.Members" Functie="Production Manager"></verantwoordelijke>
-            <verantwoordelijke members="Model.Band.Members" Functie="Artiestenbegeleider"></verantwoordelijke>
+            <vc:verantwoordelijke members="@Model.Band.Members" functie="TourManager"></vc:verantwoordelijke>
+            <vc:verantwoordelijke members="@Model.Band.Members" functie="Production Manager"></vc:verantwoordelijke>
+            <vc:verantwoordelijke members="@Model.Band.Members" functie="Artiestenbegeleider"></vc:verantwoordelijke>
         </div>
     </section>
     <section class="riderItem row">
@@ -41,10 +41,10 @@
             </h2>
             <div class="listBooleans">
                 <ul class="list-unstyled d-flex flex-wrap">
-                    <rider-li for="Voorziening.Wasserij"></rider-li>
-                    <rider-li for="Voorziening.Busstock"></rider-li>
-                    <rider-li for="Voorziening.Coolersband"></rider-li>
-                    <rider-li for="Voorziening.CoolersGMM"></rider-li>
+                    <rider-li for="Voorziening.Wasserij"></rider-li> <!--Tag Helper: RiderLiTagHelper.cs-->
+                    @await Component.InvokeAsync("RiderLi", new { name = "Coolers band", value = Model.Voorziening.Coolersband }) <!--View Component alternatief-->
+                    <vc:rider-li name="Busstock" value="@Model.Voorziening.Busstock"></vc:rider-li> <!--View Component: RiderLiViewComponent.cs-->
+                    <vc:rider-li name="CoolersG MM" value="@Model.Voorziening.CoolersGMM"></vc:rider-li>
                 </ul>
             </div>
             <rider-comments comments="@Model.Voorziening.Comments"></rider-comments>
@@ -57,10 +57,10 @@
             </h2>
             <div class="listBooleans">
                 <ul class="list-unstyled d-flex flex-wrap">
-                    <rider-li for="Catering.AfterShow"></rider-li>
-                    <rider-li for="Catering.Speciaal"></rider-li>
-                    <rider-li for="Catering.TakeAwayFood"></rider-li>
-                    <rider-li for="Catering.Truckdrivers"></rider-li>
+                    <vc:rider-li name="AfterShow" value="@Model.Catering.AfterShow"></vc:rider-li>
+                    <vc:rider-li name="Speciaal" value="@Model.Catering.Speciaal"></vc:rider-li>
+                    <vc:rider-li name="Take Away Food" value="@Model.Catering.TakeAwayFood"></vc:rider-li>
+                    <vc:rider-li name="Truckdrivers" value="@Model.Catering.Truckdrivers"></vc:rider-li>
                 </ul>
             </div>
             <rider-comments comments="@Model.Catering.Comments"></rider-comments>
@@ -73,8 +73,8 @@
             </h2>
             <div class="listBooleans">
                 <ul class="list-unstyled d-flex flex-wrap">
-                    <rider-li for="Logistic.Verlengkabels"></rider-li>
-                    <rider-li for="Logistic.Voltage110"></rider-li>
+                    <vc:rider-li name="Verlengkabels" value="@Model.Logistic.Verlengkabels"></vc:rider-li>
+                    <vc:rider-li name="Verlengkabels" value="@Model.Logistic.Voltage110"></vc:rider-li>
                 </ul>
             </div>
             <rider-comments comments="@Model.Logistic.Comments"></rider-comments>
@@ -87,15 +87,15 @@
             </h2>
             <div class="listBooleans">
                 <ul class="list-unstyled d-flex flex-wrap">
-                    <rider-li for="Special.Arts"></rider-li>
-                    <rider-li for="Special.HdWitKl"></rider-li>
-                    <rider-li for="Special.HdWitGr"></rider-li>
-                    <rider-li for="Special.HdZwartGr"></rider-li>
-                    <rider-li for="Special.HdZwartKl"></rider-li>
-                    <rider-li for="Special.Kine"></rider-li>
-                    <rider-li for="Special.Runner"></rider-li>
-                    <rider-li for="Special.Vervoer"></rider-li>
-                    <rider-li for="Special.Zuurstof"></rider-li>
+                    <vc:rider-li name="Arts" value="@Model.Special.Arts"></vc:rider-li>
+                    <vc:rider-li name="HD Wit Kl" value="@Model.Special.HdWitKl"></vc:rider-li>
+                    <vc:rider-li name="HD Wit Gr" value="@Model.Special.HdWitGr"></vc:rider-li>
+                    <vc:rider-li name="HD Zwart Gr" value="@Model.Special.HdZwartGr"></vc:rider-li>
+                    <vc:rider-li name="HD Zwart Kl" value="@Model.Special.HdZwartKl"></vc:rider-li>
+                    <vc:rider-li name="Kine" value="@Model.Special.Kine"></vc:rider-li>
+                    <vc:rider-li name="Runner" value="@Model.Special.Runner"></vc:rider-li>
+                    <vc:rider-li name="Vervoer" value="@Model.Special.Vervoer"></vc:rider-li>
+                    <vc:rider-li name="Zuurstof" value="@Model.Special.Zuurstof"></vc:rider-li>
                 </ul>
             </div>
             <rider-comments comments="@Model.Special.Comments"></rider-comments>

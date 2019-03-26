@@ -10,6 +10,8 @@ using BusinessFacade;
 
 namespace ViewSec.TagHelpers
 {
+    /// <summary>Prints a header with a given Function name and the name(s) of the Members with that Function</summary>
+    /// <example><verantwoordelijke members="Model.Band.Members" Functie="TourManager"></verantwoordelijke></code></example>
     public class VerantwoordelijkeTagHelper : TagHelper
     {
         public ICollection<Member> Members { get; set; }

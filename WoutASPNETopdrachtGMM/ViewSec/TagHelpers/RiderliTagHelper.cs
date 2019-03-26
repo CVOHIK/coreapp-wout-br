@@ -9,7 +9,9 @@ using System.Text.Encodings.Web;
 
 namespace ViewSec.TagHelpers
 {
-    /// <see cref="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-2.2"/>
+    /// <summary>Print a list item with the given rider item and the given value of the item</summary>
+    /// <example><code><rider-li for="Voorziening.Wasserij"></rider-li></code></example>
+    /// <seealso href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-2.2"/>
     public class RiderLiTagHelper : TagHelper
     {
         public ModelExpression For { get; set; }

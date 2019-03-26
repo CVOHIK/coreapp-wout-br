@@ -1,0 +1,9 @@
+﻿@model ViewSec.Views.Shared.Components.Verantwoordelijke.VerantwoordelijkeModel
+@{
+    ViewData["gridClass"] = "col-md-6";
+    Layout = "_VerantwoordelijkeLayout.cshtml";
+    var member = Model.Members.FirstOrDefault();
+}
+<p>@member.Name</p>
+<p><label>Tel.</label>@member.Gsm</p>
+<p><label>Email</label>@member.Email</p>

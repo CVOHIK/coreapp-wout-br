@@ -9,7 +9,8 @@ using System.Text.Encodings.Web;
 
 namespace ViewSec.TagHelpers
 {
-    /// <see cref="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-2.2"/>
+    /// <summary>Print a unordered list with comments split over multiple list items</summary>
+    /// <example><code><rider-comments comments="@Model.Voorziening.Comments"></rider-comments></code></example>
     public class RiderCommentsTagHelper : TagHelper
     {
         public string Comments { get; set; }
