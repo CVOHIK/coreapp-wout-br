@@ -1,4 +1,4 @@
-# coreapp-wout-breugelmans
+# coreapp-wout-br
 Voor de eerste run moet `Update-Database` uitgevoerd worden om de Identity tabellen aan te maken via Migration.
 Daarna kun je inloggen met `admin@GMM.be`, of `user@GMM.be`, beide met paswoord `Test123`.
 ## Updates (nieuwste eerst)
